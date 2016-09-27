@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927074547) do
+ActiveRecord::Schema.define(version: 20160927135639) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -86,10 +86,11 @@ ActiveRecord::Schema.define(version: 20160927074547) do
   add_index "results", ["question_id"], name: "index_results_on_question_id"
 
   create_table "results_answers", force: :cascade do |t|
+    t.text     "answer_for_text"
     t.integer  "result_id"
     t.integer  "answer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "results_answers", ["answer_id"], name: "index_results_answers_on_answer_id"
@@ -126,6 +127,8 @@ ActiveRecord::Schema.define(version: 20160927074547) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "deleted_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at"

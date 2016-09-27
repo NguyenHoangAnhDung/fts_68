@@ -25,6 +25,9 @@ gem "simple_form"
 gem "kaminari-bootstrap", "~> 3.0.1"
 gem "cancancan", "~> 1.10"
 gem "paranoia", "~> 2.0"
+gem "omniauth-twitter"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   gem "sqlite3",     "1.3.9"

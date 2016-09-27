@@ -48,6 +48,7 @@ class ExamsController < ApplicationController
 
   def update_exam_params
     params.require(:exam).permit results_attributes: [:id, :answer_id,
-      results_answers_attributes: [:id, :answer_id, :_destroy]]
+      results_answers_attributes: [:id, :answer_id,
+        :answer_for_text, :_destroy]]
   end
 end

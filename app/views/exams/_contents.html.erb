@@ -5,23 +5,26 @@
         <li><h3><%= results_field.object.question.content %></h3></li>
         <ul>
           <% if results_field.object.question.multiple_choice? %>
-            <%= results_field.fields_for :results_answers do |rs| %>
+            <%= results_field.fields_for :results_answers do |result_answer| %>
               <li>
                 <label class="checkbox-inline">
-                  <% if rs.object.persisted? %>
-                    <%= rs.check_box :_destroy,
+                  <% if result_answer.object.persisted? %>
+                    <%= result_answer.check_box :_destroy,
                       {checked: true, disabled: @exam.is_finished?}, 0, 1 %>
                   <% else %>
-                    <%= rs.check_box :answer_id,
+                    <%= result_answer.check_box :answer_id,
                       {checked: false, disabled: @exam.is_finished?},
-                      rs.object.answer.id, nil %>
+                      result_answer.object.answer.id, nil %>
                   <% end %>
-                  <%= rs.object.answer.content %>
+                  <%= result_answer.object.answer.content %>
                 </label>
               </li>
             <% end %>
           <% elsif results_field.object.question.text? %>
-            <%= f.input :answer_id, as: :text %>
+            <%= results_field.fields_for :results_answers do |result_answer| %>
+              <%= result_answer.input :answer_for_text, label: false,
+                disabled: @exam.is_finished? %>
+            <% end %>
           <% else %>
             <% results_field.object.question.answers.each do |answer| %>
               <li>

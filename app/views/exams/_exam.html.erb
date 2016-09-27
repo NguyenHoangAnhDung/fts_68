@@ -17,7 +17,7 @@
       <tr>
         <td><%= index + 1 %></td>
         <td>
-          <%= exam.created_at.strftime(I18n.t "time.formats.start_time") %>
+          <%=  exam.created_at.format_time t("start_time") %>
         </td>
         <td><%= exam.subject.name %></td>
         <td>
@@ -26,8 +26,8 @@
           </span></td>
         <td><%= exam.subject.duration %></td>
         <td><%= exam.subject.number_of_questions %></td>
-        <td><%= Time.at(exam.spent_time)
-          .utc.strftime(I18n.t "time.formats.mytime") %>
+        <td>
+          <%= Time.at(exam.spent_time).utc.format_time t("mytime") %>
         </td>
         <td><%= "#{exam.results.count_correct_answer}
           #{t"result"} #{Settings.question_per_exam}" %></td>

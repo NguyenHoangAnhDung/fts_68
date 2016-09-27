@@ -12,9 +12,9 @@ $(document).ready(function() {
     };
   }
   function initializeClock(id,endtime){
-    var hoursSpan = $('#'+ id+' .hours');
-    var minutesSpan = $('#'+ id+' .minutes');
-    var secondsSpan = $('#'+ id+' .seconds');
+    var hoursSpan = $('#' + id + ' .hours');
+    var minutesSpan = $('#' + id + ' .minutes');
+    var secondsSpan = $('#' + id + ' .seconds');
     function updateClock(){
       var t = getTimeRemaining(endtime);
       hoursSpan.html(('0' + t.hours).slice(-2));

@@ -174,3 +174,6 @@ en:
   hours: "Hours"
   minutes: "Minutes"
   seconds: "Seconds"
+  signin_with_fb: "Sign in with Facebook"
+  start_time: "start_time"
+  mytime: "mytime"

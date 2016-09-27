@@ -1,4 +1,4 @@
 <%= " #{t("exam_title")}
-  #{@exam.start_tested_at.strftime(I18n.t "time.formats.start_time")}" %>
+  #{@exam.start_tested_at.format_time t("start_time")}"%>
 <center class="exam_title"><%=  @exam.subject.name  %></center>
 <%= hidden_field_tag "duration", @exam.time_left %>
